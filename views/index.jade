@@ -1,0 +1,32 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/metisMenu.min.css')
+    link(rel='stylesheet', href='/stylesheets/sb-admin-2.css')
+    link(rel='stylesheet', href='/stylesheets/morris.css')
+    link(rel='stylesheet', href='/stylesheets/font-awesome.min.css')
+  body
+    #wrapper
+      nav.navbar.navbar-default.navbar-static-top(role='navigation', style='margin-bottom: 0')
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='index.html') SB Admin v2.0
+        div.navbar-default.sidebar(role='navigation')
+          div.sidebar-nav.navbar-collapse
+            ul#side-menu.nav
+              each item in Menu
+                li
+                  a(href= item.get('href') , class="#{ item.get('is_active') ? 'active' : '' }")
+                    i.fa.fa-fw(class="#{item.get('icon')}")
+                    = ' ' + item.get('name')
+      
+        div#page-wrapper        
+          .row
+            .col-lg-12
+              h1.page-header #{PageName}
